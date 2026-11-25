@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "soilcarbon-mrv"
+version = "0.1.0"
+description = "Zero-dependency Equivalent Soil Mass (ESM) soil organic carbon stock, Verra VM0042 uncertainty deduction, and tamper-evident MRV certificate engine."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Akandwanaho Ivan Alvin" }]
+keywords = [
+    "soil-carbon",
+    "mrv",
+    "equivalent-soil-mass",
+    "climate-tech",
+    "regenerative-agriculture",
+    "carbon-accounting",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.scripts]
+soilcarbon-mrv = "soilcarbon_mrv.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/soilcarbon_mrv"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
